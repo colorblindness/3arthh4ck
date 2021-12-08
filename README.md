@@ -1,9 +1,9 @@
-# 3arthh4ck
-The real phobos recode. Brought to you by oHareDaBoss himself.
+# Düny4hil3(Turkish 3arthh4ck) 
+Phobos recode türkçeleştirme projem 0dan türkçeleştirme yapacağım.
+Eğer yardım etmek isterseniz pullrequest atabilirsiniz. 
+# EN
+Im going to tranlate this
 
-released because grin is a big b word. very uncool of what he did.
-not swag.
-ohare.cc config provided because ohare.cc is the best server in mc.
-https://www.youtube.com/watch?v=xUyx8BdJ6JE
-
-every client bouta get a recode
+# Original phobos recode
+https://github.com/colorblindness/3arthh4ck
+Full credit goes to 3arthqu4ke, ohare and megyn for the client. 
