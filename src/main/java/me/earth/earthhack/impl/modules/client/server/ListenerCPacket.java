@@ -1,7 +1,7 @@
 package me.earth.earthhack.impl.modules.client.server;
 
 import io.netty.buffer.Unpooled;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.commands.packet.util.BufferUtil;
 import me.earth.earthhack.impl.event.events.network.PacketEvent;
 import me.earth.earthhack.impl.event.listeners.CPacketPlayerListener;
@@ -115,7 +115,7 @@ final class ListenerCPacket extends CPacketPlayerListener
                 catch (IOException e)
                 {
                     module.connectionManager.remove(connection);
-                    Earthhack.getLogger().warn(
+                    Dunyahile.getLogger().warn(
                             "Error with Connection: " + connection.getName());
                     e.printStackTrace();
                 }

@@ -7,7 +7,7 @@ import me.earth.earthhack.api.setting.settings.ColorSetting;
 import me.earth.earthhack.api.setting.settings.EnumSetting;
 import me.earth.earthhack.api.setting.settings.NumberSetting;
 import me.earth.earthhack.api.util.TextUtil;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.core.mixins.audio.ISoundHandler;
 import me.earth.earthhack.impl.gui.visibility.PageBuilder;
 import me.earth.earthhack.impl.gui.visibility.Visibilities;
@@ -118,7 +118,7 @@ public class Sounds extends RegisteringModule<Boolean, SimpleRemovingSetting>
         }
         else
         {
-            Earthhack.getLogger().info(s);
+            Dunyahile.getLogger().info(s);
         }
     }
 

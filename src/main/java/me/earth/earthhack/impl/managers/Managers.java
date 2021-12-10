@@ -3,7 +3,7 @@ package me.earth.earthhack.impl.managers;
 import me.earth.earthhack.api.event.bus.api.EventBus;
 import me.earth.earthhack.api.event.bus.instance.Bus;
 import me.earth.earthhack.api.plugin.Plugin;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.managers.chat.ChatManager;
 import me.earth.earthhack.impl.managers.chat.CommandManager;
 import me.earth.earthhack.impl.managers.chat.WrapManager;
@@ -26,7 +26,6 @@ import me.earth.earthhack.impl.managers.minecraft.movement.RotationManager;
 import me.earth.earthhack.impl.managers.minecraft.movement.SpeedManager;
 import me.earth.earthhack.impl.managers.minecraft.timer.TimerManager;
 import me.earth.earthhack.impl.managers.render.ColorManager;
-import me.earth.earthhack.impl.managers.render.HandRenderManager;
 import me.earth.earthhack.impl.managers.render.TextRenderer;
 import me.earth.earthhack.impl.managers.thread.EntityProvider;
 import me.earth.earthhack.impl.managers.thread.ThreadManager;
@@ -80,7 +79,7 @@ public class Managers
     /** Loads all Managers. Shouldn't be called more than once. */
     public static void load()
     {
-        Earthhack.getLogger().info("Subscribing Managers.");
+        Dunyahile.getLogger().info("Subscribing Managers.");
 
         subscribe(TIMER, CONNECT, CHAT, COMBAT, POSITION, ROTATION, SERVER,
                   ACTION, SPEED, SWITCH, TPS, HOLES, SAFETY, KEYBOARD, COLOR,

@@ -7,7 +7,7 @@ import me.earth.earthhack.api.command.Completer;
 import me.earth.earthhack.api.command.PossibleInputs;
 import me.earth.earthhack.api.util.TextUtil;
 import me.earth.earthhack.api.util.interfaces.Globals;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.commands.packet.arguments.AdvancementArgument;
 import me.earth.earthhack.impl.commands.packet.arguments.AdvancementProgressArgument;
 import me.earth.earthhack.impl.commands.packet.arguments.AttributeArgument;
@@ -84,7 +84,6 @@ import me.earth.earthhack.impl.util.network.NetworkUtil;
 import me.earth.earthhack.impl.util.network.PacketUtil;
 import me.earth.earthhack.impl.util.text.ChatUtil;
 import me.earth.earthhack.impl.util.text.TextColor;
-import me.earth.earthhack.installer.srg2notch.MappingUtil;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.block.Block;
@@ -692,7 +691,7 @@ public class PacketCommandImpl extends Command implements Globals, PacketCommand
                     {
                         if (!arguments.containsKey(type))
                         {
-                            Earthhack.getLogger().error(
+                            Dunyahile.getLogger().error(
                                     "<PacketCommand>" +
                                             " No Argument found for: "
                                             + type.getName()
@@ -709,7 +708,7 @@ public class PacketCommandImpl extends Command implements Globals, PacketCommand
                                    .equals(packet.getSimpleName())
                         && !alreadyExisting.equals(packet))
                 {
-                    Earthhack.getLogger().warn(alreadyExisting.getName()
+                    Dunyahile.getLogger().warn(alreadyExisting.getName()
                             + " SimpleName clashes with: " + packet.getName());
                 }
             }

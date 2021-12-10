@@ -2,7 +2,7 @@ package me.earth.earthhack.impl.managers.config;
 
 import me.earth.earthhack.api.config.ConfigHelper;
 import me.earth.earthhack.api.register.AbstractRegister;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.managers.Managers;
 import me.earth.earthhack.impl.managers.config.helpers.BindConfigHelper;
 import me.earth.earthhack.impl.managers.config.helpers.CurrentConfig;
@@ -36,21 +36,21 @@ public class ConfigManager extends AbstractRegister<ConfigHelper<?>>
     {
         for (ConfigHelper<?> helper : getRegistered())
         {
-            Earthhack.getLogger().info("Config saving: " + helper.getName());
+            Dunyahile.getLogger().info("Config saving: " + helper.getName());
             helper.save();
         }
 
-        Earthhack.getLogger().info("Config saving: current");
+        Dunyahile.getLogger().info("Config saving: current");
         CurrentConfig.getInstance().save();
     }
 
     public void refreshAll() throws IOException
     {
-        Earthhack.getLogger().info("Config refreshing: current");
+        Dunyahile.getLogger().info("Config refreshing: current");
         CurrentConfig.getInstance().refresh();
         for (ConfigHelper<?> helper : getRegistered())
         {
-            Earthhack.getLogger().info("Config refreshing: " + helper.getName());
+            Dunyahile.getLogger().info("Config refreshing: " + helper.getName());
             helper.refresh();
 
             String current = CurrentConfig.getInstance().get(helper);
@@ -65,21 +65,21 @@ public class ConfigManager extends AbstractRegister<ConfigHelper<?>>
 
     public void save(ConfigHelper<?> helper, String...args) throws IOException
     {
-        Earthhack.getLogger().info("Config: saving " + helper.getName() + " "
+        Dunyahile.getLogger().info("Config: saving " + helper.getName() + " "
                                     + Arrays.toString(args));
         execute(helper, ConfigHelper::save, ConfigHelper::save, args);
     }
 
     public void load(ConfigHelper<?> helper, String...args) throws IOException
     {
-        Earthhack.getLogger().info("Config: loading " + helper.getName() + " "
+        Dunyahile.getLogger().info("Config: loading " + helper.getName() + " "
                                     + Arrays.toString(args));
         execute(helper, h -> {}, ConfigHelper::load, args);
     }
 
     public void refresh(ConfigHelper<?> helper, String...args) throws IOException
     {
-        Earthhack.getLogger().info("Config: refreshing " + helper.getName()
+        Dunyahile.getLogger().info("Config: refreshing " + helper.getName()
                                     + " " + Arrays.toString(args));
         execute(helper, ConfigHelper::refresh, ConfigHelper::refresh, args);
     }

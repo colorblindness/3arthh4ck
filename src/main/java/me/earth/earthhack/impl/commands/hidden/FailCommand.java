@@ -5,7 +5,7 @@ import me.earth.earthhack.api.command.Completer;
 import me.earth.earthhack.api.command.PossibleInputs;
 import me.earth.earthhack.api.register.Registrable;
 import me.earth.earthhack.api.util.interfaces.Globals;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.commands.util.CommandUtil;
 import me.earth.earthhack.impl.managers.Managers;
 import me.earth.earthhack.impl.modules.client.commands.Commands;
@@ -55,7 +55,7 @@ public class FailCommand extends Command implements Registrable, Globals
                         + Commands.getPrefix()
                         + "help to get a list of commands.");
 
-                Earthhack.getLogger().info("FailCommand for args: "
+                Dunyahile.getLogger().info("FailCommand for args: "
                         + Arrays.toString(args));
                 return;
             }
@@ -66,7 +66,7 @@ public class FailCommand extends Command implements Registrable, Globals
                 + Commands.getPrefix()
                 + "help to get a list of commands.");
 
-        Earthhack.getLogger().info("FailCommand for args: "
+        Dunyahile.getLogger().info("FailCommand for args: "
                 + Arrays.toString(args));
     }
 

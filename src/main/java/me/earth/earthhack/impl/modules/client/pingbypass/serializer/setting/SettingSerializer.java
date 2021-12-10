@@ -8,7 +8,7 @@ import me.earth.earthhack.api.setting.event.SettingEvent;
 import me.earth.earthhack.api.util.interfaces.Displayable;
 import me.earth.earthhack.api.util.interfaces.Globals;
 import me.earth.earthhack.api.util.interfaces.Nameable;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.managers.thread.scheduler.Scheduler;
 import me.earth.earthhack.impl.modules.client.pingbypass.serializer.Serializer;
 import net.minecraft.network.play.client.CPacketChatMessage;
@@ -126,7 +126,7 @@ public class SettingSerializer extends SubscriberImpl
                 + " "
                 + setting.getValue().toString();
 
-        Earthhack.getLogger().info(command);
+        Dunyahile.getLogger().info(command);
         CPacketChatMessage packet = new CPacketChatMessage(command);
         Objects.requireNonNull(mc.getConnection()).sendPacket(packet);
     }

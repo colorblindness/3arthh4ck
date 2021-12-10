@@ -1,8 +1,7 @@
 package me.earth.earthhack.impl.modules.combat.autocrystal;
 
-import me.earth.earthhack.api.cache.ModuleCache;
 import me.earth.earthhack.api.event.events.Stage;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.event.events.network.MotionUpdateEvent;
 import me.earth.earthhack.impl.event.listeners.ModuleListener;
 import me.earth.earthhack.impl.managers.Managers;
@@ -13,8 +12,6 @@ import me.earth.earthhack.impl.modules.combat.autocrystal.modes.RotationThread;
 import me.earth.earthhack.impl.modules.combat.autocrystal.util.RotationFunction;
 import me.earth.earthhack.impl.modules.combat.legswitch.LegSwitch;
 import me.earth.earthhack.impl.util.math.MathUtil;
-import net.minecraft.client.Minecraft;
-import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.util.MouseFilter;
 
 final class ListenerMotion extends
@@ -66,7 +63,7 @@ final class ListenerMotion extends
                         module.wait(module.timeOut.getValue());
                     } catch (InterruptedException e)
                     {
-                        Earthhack.getLogger()
+                        Dunyahile.getLogger()
                                 .warn("Minecraft Main-Thread interrupted!");
                         Thread.currentThread().interrupt();
                     }

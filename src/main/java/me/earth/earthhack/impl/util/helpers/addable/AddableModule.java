@@ -6,7 +6,7 @@ import me.earth.earthhack.api.setting.Setting;
 import me.earth.earthhack.api.setting.settings.CommandSetting;
 import me.earth.earthhack.api.setting.settings.EnumSetting;
 import me.earth.earthhack.api.util.TextUtil;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.util.helpers.command.AddableCommandModule;
 
 import java.util.Collection;
@@ -40,7 +40,7 @@ public class AddableModule extends AddableCommandModule
                 || setting.getName().equalsIgnoreCase("del"))
         {
             // hmm Exception idk SettingContainer could implement Register
-            Earthhack.getLogger().error(this.getName()
+            Dunyahile.getLogger().error(this.getName()
                     + " Can't register the setting: "
                     + setting.getName()
                     + " in AddableModules these names (add/del) are"

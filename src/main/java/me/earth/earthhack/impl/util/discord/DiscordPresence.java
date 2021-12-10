@@ -4,7 +4,7 @@ import club.minnced.discord.rpc.DiscordEventHandlers;
 import club.minnced.discord.rpc.DiscordRPC;
 import club.minnced.discord.rpc.DiscordRichPresence;
 import me.earth.earthhack.api.cache.ModuleCache;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.modules.Caches;
 import me.earth.earthhack.impl.modules.misc.rpc.RPC;
 import net.minecraft.client.Minecraft;
@@ -35,7 +35,7 @@ public class DiscordPresence {
                                 : " multiplayer.") : " singleplayer.");
             presence.state = RPC.get().state.getValue();
             presence.largeImageKey = "phobos";
-            presence.largeImageText = Earthhack.NAME + " " + Earthhack.VERSION;
+            presence.largeImageText = Dunyahile.NAME + " " + Dunyahile.VERSION;
             rpc.Discord_UpdatePresence(DiscordPresence.presence);
             thread = new Thread(() ->
             {

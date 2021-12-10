@@ -7,7 +7,7 @@ import me.earth.earthhack.api.event.bus.instance.Bus;
 import me.earth.earthhack.api.setting.Setting;
 import me.earth.earthhack.api.setting.settings.BooleanSetting;
 import me.earth.earthhack.api.setting.settings.NumberSetting;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.core.ducks.entity.IEntityRenderer;
 import me.earth.earthhack.impl.event.events.misc.ReachEvent;
 import me.earth.earthhack.impl.event.events.render.*;
@@ -302,7 +302,7 @@ public abstract class MixinEntityRenderer implements IEntityRenderer {
                     boundingBox,
                     p);
         } catch (Exception e) {
-            Earthhack.getLogger().warn("It's that Exception again...");
+            Dunyahile.getLogger().warn("It's that Exception again...");
             e.printStackTrace();
         }
 

@@ -6,7 +6,7 @@ import me.earth.earthhack.api.cache.SettingCache;
 import me.earth.earthhack.api.module.Module;
 import me.earth.earthhack.api.register.Register;
 import me.earth.earthhack.api.setting.Setting;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -97,7 +97,7 @@ public class Caches
             entry.getValue().setFrozen(false);
             if (!entry.getValue().isPresent())
             {
-                Earthhack.getLogger().error("Module-Caches: couldn't make "
+                Dunyahile.getLogger().error("Module-Caches: couldn't make "
                                         + entry.getKey().getName()
                                         + " present.");
                 entry.getValue().setFrozen(true);
@@ -115,7 +115,7 @@ public class Caches
                     entry1.getValue().setFrozen(false);
                     if (!entry1.getValue().isPresent())
                     {
-                        Earthhack.getLogger().error(
+                        Dunyahile.getLogger().error(
                                 "Setting-Caches: couldn't make "
                                 + entry.getKey().getName()
                                 + " - "

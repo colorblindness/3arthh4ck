@@ -1,6 +1,6 @@
 package me.earth.earthhack.impl.core.mixins.block;
 
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
@@ -35,7 +35,7 @@ public abstract class MixinTileEntityEndGateway extends TileEntityEndPortal
                 block = MC.world.getBlockState(this.getPos()).getBlock();
                 if (block == null)
                 {
-                    Earthhack.getLogger().warn("EndGateway still null!");
+                    Dunyahile.getLogger().warn("EndGateway still null!");
                     return Blocks.END_GATEWAY;
                 }
 

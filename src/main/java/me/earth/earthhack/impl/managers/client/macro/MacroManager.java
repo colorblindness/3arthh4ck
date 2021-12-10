@@ -5,7 +5,7 @@ import me.earth.earthhack.api.event.bus.api.Listener;
 import me.earth.earthhack.api.event.bus.api.Subscriber;
 import me.earth.earthhack.api.register.IterationRegister;
 import me.earth.earthhack.api.util.interfaces.Globals;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.commands.MacroCommand;
 import me.earth.earthhack.impl.event.events.keyboard.KeyboardEvent;
 import me.earth.earthhack.impl.managers.Managers;
@@ -77,7 +77,7 @@ public class MacroManager extends IterationRegister<Macro>
             if (macro instanceof DelegateMacro
                     && !((DelegateMacro) macro).isReferenced(this))
             {
-                Earthhack.getLogger().info("Deleting DelegateMacro "
+                Dunyahile.getLogger().info("Deleting DelegateMacro "
                         + macro.getName()
                         + " it's not being referenced anymore.");
                 return true;

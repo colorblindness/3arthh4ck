@@ -5,8 +5,7 @@ import me.earth.earthhack.api.setting.Setting;
 import me.earth.earthhack.api.setting.settings.BooleanSetting;
 import me.earth.earthhack.api.setting.settings.EnumSetting;
 import me.earth.earthhack.api.util.TextUtil;
-import me.earth.earthhack.impl.Earthhack;
-import me.earth.earthhack.impl.managers.Managers;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.modules.misc.logger.util.LoggerMode;
 import me.earth.earthhack.impl.util.helpers.addable.RegisteringModule;
 import me.earth.earthhack.impl.util.helpers.addable.setting.SimpleRemovingSetting;
@@ -14,8 +13,6 @@ import me.earth.earthhack.impl.util.mcp.MappingProvider;
 import me.earth.earthhack.impl.util.network.PacketUtil;
 import me.earth.earthhack.impl.util.text.ChatUtil;
 import net.minecraft.network.Packet;
-import net.minecraft.network.play.client.CPacketPlayerTryUseItem;
-import net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -167,7 +164,7 @@ public class Logger extends RegisteringModule<Boolean, SimpleRemovingSetting>
             });
         }
 
-        Earthhack.getLogger().info(s);
+        Dunyahile.getLogger().info(s);
 
         if (stackTrace.getValue())
         {

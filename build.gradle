@@ -118,7 +118,7 @@ compileJava {
     // Tbh it would be much easier if we could assign this differently
     // instead of writing it, but StackOverflow didn't give a working
     // solution for that. One looked promising but it caused duplicate classes.
-    File update = file 'src/main/java/me/earth/earthhack/impl/Earthhack.java'
+    File update = file 'src/main/java/me/earth/earthhack/impl/DunyaHile.java'
     contents = update.getText( 'UTF-8' )
     contents = contents.replaceAll( 'VERSION = "(.*?)"', 'VERSION = "' + project.version + '"' )
     update.write( contents, 'UTF-8' )

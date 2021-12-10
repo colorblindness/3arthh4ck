@@ -4,7 +4,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import me.earth.earthhack.api.config.Jsonable;
 import me.earth.earthhack.api.util.bind.Bind;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.managers.chat.CommandManager;
 
 import java.util.ArrayList;
@@ -144,7 +144,7 @@ public class DelegateMacro extends Macro
             @Override
             public void fromJson(JsonElement element)
             {
-                Earthhack.getLogger().info("Anonymous delegates " + getName()
+                Dunyahile.getLogger().info("Anonymous delegates " + getName()
                     + " fromJson method was called. This shouldn't happen.");
             }
 

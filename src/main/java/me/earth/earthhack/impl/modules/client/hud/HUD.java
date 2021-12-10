@@ -7,7 +7,7 @@ import me.earth.earthhack.api.setting.Setting;
 import me.earth.earthhack.api.setting.settings.BooleanSetting;
 import me.earth.earthhack.api.setting.settings.ColorSetting;
 import me.earth.earthhack.api.setting.settings.EnumSetting;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.managers.Managers;
 import me.earth.earthhack.impl.managers.render.TextRenderer;
 import me.earth.earthhack.impl.modules.client.hud.arraylist.ArrayEntry;
@@ -123,7 +123,7 @@ public class HUD extends Module {
 
     protected void renderLogo() {
         if (logo.getValue()) {
-            renderText("3arthh4ck - " + Earthhack.VERSION, 2, 2);
+            renderText("3arthh4ck - " + Dunyahile.VERSION, 2, 2);
         }
     }
 

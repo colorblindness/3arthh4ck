@@ -2,7 +2,7 @@ package me.earth.earthhack.impl.core.mixins.util;
 
 import me.earth.earthhack.api.cache.SettingCache;
 import me.earth.earthhack.api.setting.settings.BooleanSetting;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.gui.chat.clickevents.RunnableClickEvent;
 import me.earth.earthhack.impl.gui.chat.components.SuppliedComponent;
 import me.earth.earthhack.impl.managers.Managers;
@@ -140,7 +140,7 @@ public abstract class MixinScreenShotHelper
                 catch (Throwable t)
                 {
                     Throwable cause = t.getCause();
-                    Earthhack.getLogger().error("Couldn't open link: {}",
+                    Dunyahile.getLogger().error("Couldn't open link: {}",
                         cause == null ? "<UNKNOWN>" : cause.getMessage());
                 }
             }

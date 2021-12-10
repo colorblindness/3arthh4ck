@@ -5,12 +5,11 @@ import com.google.gson.JsonObject;
 import me.earth.earthhack.api.config.Jsonable;
 import me.earth.earthhack.api.config.preset.ElementConfig;
 import me.earth.earthhack.api.config.preset.HudValuePreset;
-import me.earth.earthhack.api.config.preset.ValuePreset;
 import me.earth.earthhack.api.hud.HudElement;
 import me.earth.earthhack.api.register.Register;
 import me.earth.earthhack.api.setting.GeneratedSettings;
 import me.earth.earthhack.api.setting.Setting;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -60,7 +59,7 @@ public class HudConfigHelper extends AbstractConfigHelper<ElementConfig> {
             HudElement module = elements.getObject(entry.getKey());
             if (module == null)
             {
-                Earthhack.getLogger().error("Config: Couldn't find element: "
+                Dunyahile.getLogger().error("Config: Couldn't find element: "
                         + entry.getKey());
                 continue;
             }
@@ -73,7 +72,7 @@ public class HudConfigHelper extends AbstractConfigHelper<ElementConfig> {
                 Setting<?> setting = module.getSettingConfig(s.getKey());
                 if (setting == null)
                 {
-                    Earthhack.getLogger().error(
+                    Dunyahile.getLogger().error(
                             "Config: Couldn't find setting: " + s.getKey()
                                     + " in element: " + module.getName() + ".");
                     continue;

@@ -1,6 +1,6 @@
 package me.earth.earthhack.impl.core.mixins.resources;
 
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.managers.client.PluginManager;
 import me.earth.earthhack.impl.managers.client.PluginResourceManager;
 import me.earth.earthhack.impl.managers.client.resource.PluginResourceLocation;
@@ -84,7 +84,7 @@ public abstract class MixinSimpleReloadableResourceManager
 
         if (supplier != null)
         {
-            Earthhack.getLogger().info("Custom Resource detected: " + location);
+            Dunyahile.getLogger().info("Custom Resource detected: " + location);
 
             try
             {

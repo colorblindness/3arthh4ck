@@ -1,7 +1,7 @@
 package me.earth.earthhack.impl.modules.render.waypoints;
 
 import com.google.gson.JsonElement;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.gui.chat.factory.ComponentFactory;
 import me.earth.earthhack.impl.modules.render.waypoints.mode.WayPointType;
 import me.earth.earthhack.impl.util.helpers.addable.setting.RemovingSetting;
@@ -42,7 +42,7 @@ public class WayPointSetting extends RemovingSetting<BlockPos>
         if (s.length < 4)
         {
             corrupted = true;
-            Earthhack.getLogger().warn(this.getName()
+            Dunyahile.getLogger().warn(this.getName()
                                         + " : can't set from Json: "
                                         + element.getAsString()
                                         + ".");
@@ -52,7 +52,7 @@ public class WayPointSetting extends RemovingSetting<BlockPos>
         this.type = WayPointType.fromString(s[0]);
         if (type == WayPointType.None)
         {
-            Earthhack.getLogger()
+            Dunyahile.getLogger()
                      .warn(this.getName() + " corrupted type: " + s[0]);
             corrupted = true;
             return;

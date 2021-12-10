@@ -5,7 +5,7 @@ import me.earth.earthhack.api.hud.HudElement;
 import me.earth.earthhack.api.register.IterationRegister;
 import me.earth.earthhack.api.register.Registrable;
 import me.earth.earthhack.api.register.exception.CantUnregisterException;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.hud.watermark.Watermark;
 import me.earth.earthhack.impl.hud.welcomer.Welcomer;
 
@@ -17,7 +17,7 @@ public class HudElementManager extends IterationRegister<HudElement> {
 
     public void init()
     {
-        Earthhack.getLogger().info("Initializing Hud Elements.");
+        Dunyahile.getLogger().info("Initializing Hud Elements.");
         this.forceRegister(new Watermark());
         this.forceRegister(new Welcomer());
     }
@@ -26,7 +26,7 @@ public class HudElementManager extends IterationRegister<HudElement> {
     {
         for (HudElement element : getRegistered())
         {
-            Earthhack.getLogger().info(element.getName());
+            Dunyahile.getLogger().info(element.getName());
             element.load();
         }
         registered.sort(Comparator.comparing(HudElement::getZ));

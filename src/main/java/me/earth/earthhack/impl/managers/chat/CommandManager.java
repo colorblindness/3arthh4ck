@@ -9,7 +9,7 @@ import me.earth.earthhack.api.register.Registrable;
 import me.earth.earthhack.api.register.exception.AlreadyRegisteredException;
 import me.earth.earthhack.api.register.exception.CantUnregisterException;
 import me.earth.earthhack.api.util.interfaces.Globals;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.commands.*;
 import me.earth.earthhack.impl.commands.hidden.FailCommand;
 import me.earth.earthhack.impl.commands.hidden.HListSettingCommand;
@@ -77,7 +77,7 @@ public class CommandManager extends SubscriberImpl
 
     public void init()
     {
-        Earthhack.getLogger().info("Initializing Commands.");
+        Dunyahile.getLogger().info("Initializing Commands.");
 
         commands.add(new ConfigCommand());
         commands.add(new FontCommand());

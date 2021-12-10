@@ -3,7 +3,7 @@ package me.earth.earthhack.impl.modules.client.pingbypass.serializer.friend;
 import me.earth.earthhack.api.event.bus.SubscriberImpl;
 import me.earth.earthhack.api.observable.Observer;
 import me.earth.earthhack.api.util.interfaces.Globals;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.managers.Managers;
 import me.earth.earthhack.impl.managers.client.event.PlayerEvent;
 import me.earth.earthhack.impl.managers.client.event.PlayerEventType;
@@ -89,7 +89,7 @@ public class FriendSerializer extends SubscriberImpl
             command += " del " + event.getName();
         }
 
-        Earthhack.getLogger().info(command);
+        Dunyahile.getLogger().info(command);
         CPacketChatMessage packet = new CPacketChatMessage(command);
         Objects.requireNonNull(mc.getConnection()).sendPacket(packet);
     }

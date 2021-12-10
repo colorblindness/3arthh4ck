@@ -6,7 +6,7 @@ import me.earth.earthhack.api.module.util.Category;
 import me.earth.earthhack.api.register.IterationRegister;
 import me.earth.earthhack.api.register.Registrable;
 import me.earth.earthhack.api.register.exception.CantUnregisterException;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.event.events.client.PostInitEvent;
 import me.earth.earthhack.impl.modules.Caches;
 import me.earth.earthhack.impl.modules.client.autoconfig.AutoConfig;
@@ -172,7 +172,7 @@ public class ModuleManager extends IterationRegister<Module>
 {
     public void init()
     {
-        Earthhack.getLogger().info("Initializing Modules.");
+        Dunyahile.getLogger().info("Initializing Modules.");
         this.forceRegister(new AutoConfig());
         this.forceRegister(new ClickGui());
         this.forceRegister(new Colors());

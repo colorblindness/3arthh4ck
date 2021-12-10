@@ -1,7 +1,7 @@
 package me.earth.earthhack.impl.hud.watermark;
 
 import me.earth.earthhack.api.hud.HudElement;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.managers.Managers;
 import net.minecraft.client.renderer.GlStateManager;
 
@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class Watermark extends HudElement {
 
-    public static String text = Earthhack.NAME + " " + Earthhack.VERSION;
+    public static String text = Dunyahile.NAME + " " + Dunyahile.VERSION;
 
     public Watermark() {
         super("Watermark", 2, 2, Managers.TEXT.getStringWidth(text), Managers.TEXT.getStringHeight());

@@ -7,7 +7,7 @@ import me.earth.earthhack.api.register.exception.CantUnregisterException;
 import me.earth.earthhack.api.setting.settings.BindSetting;
 import me.earth.earthhack.api.util.TextUtil;
 import me.earth.earthhack.api.util.bind.Bind;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.commands.abstracts.AbstractMultiMacroCommand;
 import me.earth.earthhack.impl.commands.hidden.HMacroCombineCommand;
 import me.earth.earthhack.impl.commands.hidden.HMacroFlowCommand;
@@ -349,7 +349,7 @@ public class MacroCommand extends Command
         Macro macro = getMacroStartingWith(args[2]);
         if (macro == null)
         {
-            Earthhack.getLogger().warn(Arrays.toString(args));
+            Dunyahile.getLogger().warn(Arrays.toString(args));
             ChatUtil.sendMessage(TextColor.RED + "Usage is <add/del>.");
         }
         else

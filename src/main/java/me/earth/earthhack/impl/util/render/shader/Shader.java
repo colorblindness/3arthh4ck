@@ -1,7 +1,7 @@
 package me.earth.earthhack.impl.util.render.shader;
 
 import me.earth.earthhack.api.util.interfaces.Nameable;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import org.lwjgl.opengl.GL11;
 
 import java.io.ByteArrayOutputStream;
@@ -57,7 +57,7 @@ public abstract class Shader implements Nameable
         }
         catch (IOException | NullPointerException e)
         {
-            Earthhack.getLogger().error("Shader " + name + " failed to read.");
+            Dunyahile.getLogger().error("Shader " + name + " failed to read.");
             e.printStackTrace();
             return;
         }
@@ -100,13 +100,13 @@ public abstract class Shader implements Nameable
 
         if (glGetShaderi(vertex, GL_COMPILE_STATUS) == GL11.GL_FALSE)
         {
-            Earthhack.getLogger().error("Shader " + name + "'s vertex shader failed to compile! Reason: " + glGetShaderInfoLog(vertex, 1024));
+            Dunyahile.getLogger().error("Shader " + name + "'s vertex shader failed to compile! Reason: " + glGetShaderInfoLog(vertex, 1024));
             return;
         }
 
         if (glGetShaderi(vertex, GL_COMPILE_STATUS) == GL11.GL_FALSE)
         {
-            Earthhack.getLogger().error("Shader " + name + "'s fragment shader failed to compile! Reason: " + glGetShaderInfoLog(fragment, 1024));
+            Dunyahile.getLogger().error("Shader " + name + "'s fragment shader failed to compile! Reason: " + glGetShaderInfoLog(fragment, 1024));
             return;
         }
 
@@ -117,7 +117,7 @@ public abstract class Shader implements Nameable
 
         if (glGetProgrami(program, GL_LINK_STATUS) == GL11.GL_FALSE)
         {
-            Earthhack.getLogger().error("Shader " + name + "failed to link! Reason: " + glGetProgramInfoLog(fragment, 1024));
+            Dunyahile.getLogger().error("Shader " + name + "failed to link! Reason: " + glGetProgramInfoLog(fragment, 1024));
             return;
         }
 
@@ -128,7 +128,7 @@ public abstract class Shader implements Nameable
 
         if (glGetProgrami(program, GL_VALIDATE_STATUS) == GL11.GL_FALSE)
         {
-            Earthhack.getLogger().error("Shader " + name + "failed to validate! Reason: " + glGetProgramInfoLog(fragment, 1024));
+            Dunyahile.getLogger().error("Shader " + name + "failed to validate! Reason: " + glGetProgramInfoLog(fragment, 1024));
             return;
         }
 

@@ -2,7 +2,7 @@ package me.earth.earthhack.impl.core.mixins;
 
 import me.earth.earthhack.api.cache.ModuleCache;
 import me.earth.earthhack.api.event.bus.instance.Bus;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.core.ducks.IMinecraft;
 import me.earth.earthhack.impl.event.events.client.ShutDownEvent;
 import me.earth.earthhack.impl.event.events.keyboard.ClickLeftEvent;
@@ -31,7 +31,6 @@ import net.minecraft.client.multiplayer.PlayerControllerMP;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.resources.data.MetadataSerializer;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.*;
@@ -178,7 +177,7 @@ public abstract class MixinMinecraft implements IMinecraft
                     shift = At.Shift.AFTER))
     private void preInitHook(CallbackInfo ci)
     {
-        Earthhack.preInit();
+        Dunyahile.preInit();
     }
 
     @Inject(
@@ -190,8 +189,8 @@ public abstract class MixinMinecraft implements IMinecraft
                     shift = At.Shift.BEFORE))
     private void initHook2(CallbackInfo ci)
     {
-        Earthhack.init();
-        Earthhack.postInit();
+        Dunyahile.init();
+        Dunyahile.postInit();
     }
 
     @Inject(method = "runGameLoop", at = @At("HEAD"))
@@ -461,7 +460,7 @@ public abstract class MixinMinecraft implements IMinecraft
         at = @At(value = "HEAD"))
     private void shutdownMinecraftAppletHook(CallbackInfo info)
     {
-        Earthhack.getLogger().info("Shutting down 3arthh4ck.");
+        Dunyahile.getLogger().info("Shutting down 3arthh4ck.");
         Bus.EVENT_BUS.post(new ShutDownEvent());
 
         try

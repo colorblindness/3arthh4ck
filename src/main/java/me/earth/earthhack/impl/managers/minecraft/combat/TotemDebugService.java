@@ -3,7 +3,7 @@ package me.earth.earthhack.impl.managers.minecraft.combat;
 import me.earth.earthhack.api.event.bus.SubscriberImpl;
 import me.earth.earthhack.api.event.bus.api.EventBus;
 import me.earth.earthhack.api.util.interfaces.Globals;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.tweaker.launch.Argument;
 import me.earth.earthhack.tweaker.launch.DevArguments;
 import me.earth.earthhack.impl.core.mixins.network.server.ISPacketEntityStatus;
@@ -27,7 +27,7 @@ public class TotemDebugService extends SubscriberImpl implements Globals
                 && packet.getEntityId() == player.getEntityId())
             {
                 long t = System.currentTimeMillis();
-                Earthhack.getLogger().info(
+                Dunyahile.getLogger().info(
                     "Pop, last pop: " + (t - time) + "ms");
                 time = t;
             }
@@ -38,7 +38,7 @@ public class TotemDebugService extends SubscriberImpl implements Globals
             if (e.getPacket().getHealth() <= 0.0f)
             {
                 long t = System.currentTimeMillis();
-                Earthhack.getLogger().info(
+                Dunyahile.getLogger().info(
                     "Death, last pop: " + (t - time) + "ms");
                 time = t;
             }
@@ -50,7 +50,7 @@ public class TotemDebugService extends SubscriberImpl implements Globals
         Argument<Boolean> a = DevArguments.getInstance().getArgument("totems");
         if (a == null || a.getValue())
         {
-            Earthhack.getLogger().info("TotemDebugger loaded.");
+            Dunyahile.getLogger().info("TotemDebugger loaded.");
             eventBus.subscribe(new TotemDebugService());
         }
     }

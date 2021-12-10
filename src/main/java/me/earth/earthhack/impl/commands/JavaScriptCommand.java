@@ -5,7 +5,7 @@ import me.earth.earthhack.api.command.Completer;
 import me.earth.earthhack.api.command.PossibleInputs;
 import me.earth.earthhack.api.util.TextUtil;
 import me.earth.earthhack.api.util.interfaces.Globals;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.commands.util.CommandDescriptions;
 import me.earth.earthhack.impl.commands.util.CommandScheduler;
 import me.earth.earthhack.impl.commands.util.CommandUtil;
@@ -56,7 +56,7 @@ public class JavaScriptCommand extends Command
         ScriptEngine theEngine = factory.getEngineByName("JavaScript");
         if (theEngine == null)
         {
-            Earthhack.getLogger().warn("JavaScript was null, using nashorn!");
+            Dunyahile.getLogger().warn("JavaScript was null, using nashorn!");
             theEngine = factory.getEngineByName("nashorn");
             if (theEngine == null)
             {

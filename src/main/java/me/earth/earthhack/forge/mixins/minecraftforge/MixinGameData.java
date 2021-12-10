@@ -2,7 +2,7 @@ package me.earth.earthhack.forge.mixins.minecraftforge;
 
 import me.earth.earthhack.api.cache.SettingCache;
 import me.earth.earthhack.api.setting.settings.BooleanSetting;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.modules.Caches;
 import me.earth.earthhack.impl.modules.client.management.Management;
 import net.minecraft.util.ResourceLocation;
@@ -30,7 +30,7 @@ public class MixinGameData
     {
         if (IGNORE.getValue() && list.size() != 0)
         {
-            Earthhack
+            Dunyahile
               .getLogger()
               .info("Ignored " + list.size() + " missing forge registries.");
             return 0;

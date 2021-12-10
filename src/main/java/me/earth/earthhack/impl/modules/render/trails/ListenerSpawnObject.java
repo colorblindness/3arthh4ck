@@ -1,6 +1,6 @@
 package me.earth.earthhack.impl.modules.render.trails;
 
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.event.events.network.PacketEvent;
 import me.earth.earthhack.impl.event.listeners.ModuleListener;
 import me.earth.earthhack.impl.modules.render.breadcrumbs.util.Trace;
@@ -22,7 +22,7 @@ final class ListenerSpawnObject extends ModuleListener<Trails, PacketEvent.Recei
         if ((module.pearls.getValue() && event.getPacket().getType() == 65)
                 || (module.arrows.getValue() && event.getPacket().getType() == 60)
                 || (module.snowballs.getValue() && event.getPacket().getType() == 61)) {
-            Earthhack.getLogger().info(event.getPacket().getEntityID());
+            Dunyahile.getLogger().info(event.getPacket().getEntityID());
             TimeAnimation animation = new TimeAnimation(module.time.getValue() * 1000, 0, module.color.getAlpha(), false, AnimationMode.LINEAR);
             animation.stop();
             module.ids.put(event.getPacket().getEntityID(), animation);

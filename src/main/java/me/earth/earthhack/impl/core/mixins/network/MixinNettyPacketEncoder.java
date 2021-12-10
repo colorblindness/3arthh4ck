@@ -3,7 +3,7 @@ package me.earth.earthhack.impl.core.mixins.network;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import me.earth.earthhack.api.cache.ModuleCache;
-import me.earth.earthhack.impl.Earthhack;
+import me.earth.earthhack.impl.Dunyahile;
 import me.earth.earthhack.impl.modules.Caches;
 import me.earth.earthhack.impl.modules.misc.logger.Logger;
 import me.earth.earthhack.impl.modules.misc.logger.util.LoggerMode;
@@ -66,7 +66,7 @@ public abstract class MixinNettyPacketEncoder
                         packet.readPacketData(packetbuffer);
                         if (packetbuffer.readableBytes() > 0)
                         {
-                            Earthhack.getLogger().warn("Packet: "
+                            Dunyahile.getLogger().warn("Packet: "
                                 + packet.getClass().getName()
                                 + " : " + p_encode_2_.getClass().getName()
                                 + " has leftover bytes in the PacketBuffer!");
@@ -80,7 +80,7 @@ public abstract class MixinNettyPacketEncoder
                     }
                     else
                     {
-                        Earthhack.getLogger().warn(
+                        Dunyahile.getLogger().warn(
                                 "Packet was null for id: " + i);
                     }
                 }
@@ -93,7 +93,7 @@ public abstract class MixinNettyPacketEncoder
                 if (p_encode_3_.readerIndex() != readerIndex
                         || p_encode_3_.writerIndex() != writerIndex)
                 {
-                    Earthhack.getLogger().error(
+                    Dunyahile.getLogger().error(
                         "Indices are not matching for packet: "
                             + p_encode_2_.getClass().getName()
                             + "! ReaderIndex: "
@@ -106,7 +106,7 @@ public abstract class MixinNettyPacketEncoder
             }
             else
             {
-                Earthhack.getLogger()
+                Dunyahile.getLogger()
                          .warn("Packet "
                                  + p_encode_2_.getClass().getName()
                                  + " has no readable bytes!");
