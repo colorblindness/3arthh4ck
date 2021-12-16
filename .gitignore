@@ -1,4 +1,4 @@
-# eclipse
+# Eclipse.
 bin
 *.launch
 .settings
@@ -6,25 +6,25 @@ bin
 .classpath
 .project
 
-# idea
+# .idea
 out
 *.ipr
 *.iws
 *.iml
 .idea
 
-# gradle
+# Gradle.
 build
 .gradle
 
-# other
+# Other.
 eclipse
 run
 
-# Files from Forge MDK
+# Forge.
 forge*changelog.txt
 
-# version files
-src/main/java/me/earth/earthhack/impl/Earthhack.java
-src/main/resources/mcmod.info
-version
+*.DS_Store
+
+# Useless
+src/main/java/you/are/ratted/

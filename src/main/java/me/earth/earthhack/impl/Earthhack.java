@@ -14,7 +14,8 @@ public class Earthhack
         implements Globals {
     private static final Logger LOGGER = LogManager.getLogger((String)"3arthh4ck");
     public static final String NAME = "3arthh4ck";
-    public static final String VERSION = "1.3.1-09dc40abfd7b";
+    public static final String VERSION = "1.3.1";
+//    public static final String VERSION = "1.3.1-2b8b477067fb";
 
     public static void preInit() {
         GlobalExecutor.EXECUTOR.submit(() -> Sphere.cacheSphere(LOGGER));
@@ -30,7 +31,6 @@ public class Earthhack
 
     public static void postInit() {
     }
-
 
     public static Logger getLogger() {
         return LOGGER;
