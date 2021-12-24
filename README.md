@@ -2,6 +2,8 @@
 
 Removed githash for ease of building (githash is useless)
 
+Yes, it is clean
+
 Windows: setupdecompworkspace, gradlew build
 
 Macos/Linux: ./setupdecompworkspace, ./gradlew build
