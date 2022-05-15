@@ -10,7 +10,6 @@ import me.earth.earthhack.impl.modules.Caches;
 import me.earth.earthhack.impl.modules.misc.packets.Packets;
 import me.earth.earthhack.impl.modules.player.blocktweaks.BlockTweaks;
 import me.earth.earthhack.impl.modules.render.norender.NoRender;
-import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityFallingBlock;
@@ -21,7 +20,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.gen.Invoker;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -29,16 +27,9 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import javax.annotation.Nullable;
-import java.util.List;
-
 @Mixin(World.class)
 public abstract class MixinWorld implements IWorld
 {
-    @Shadow public abstract List<Entity> getEntitiesWithinAABBExcludingEntity(@Nullable Entity entityIn, AxisAlignedBB bb);
-
-    @Shadow public abstract World init();
-
     private static final ModuleCache<NoRender> NO_RENDER =
             Caches.getModule(NoRender.class);
     private static final ModuleCache<Packets> PACKETS =
@@ -51,10 +42,10 @@ public abstract class MixinWorld implements IWorld
     public abstract boolean isChunkLoaded(int x, int z, boolean allowEmpty);
 
     @Redirect(
-        method = "handleMaterialAcceleration",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/entity/Entity;isPushedByWater()Z"))
+            method = "handleMaterialAcceleration",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/entity/Entity;isPushedByWater()Z"))
     public boolean isPushedByWaterHook(Entity entity)
     {
         WaterPushEvent event = new WaterPushEvent(entity);
@@ -64,9 +55,9 @@ public abstract class MixinWorld implements IWorld
     }
 
     @Inject(
-        method = "checkLightFor",
-        at = @At(value = "HEAD"),
-        cancellable = true)
+            method = "checkLightFor",
+            at = @At(value = "HEAD"),
+            cancellable = true)
     private void checkLightForHook(EnumSkyBlock skyBlock,
                                    BlockPos pos,
                                    CallbackInfoReturnable<Boolean> info)
@@ -79,9 +70,9 @@ public abstract class MixinWorld implements IWorld
     }
 
     @Inject(
-        method = "getRainStrength",
-        at = @At(value="HEAD"),
-        cancellable = true)
+            method = "getRainStrength",
+            at = @At(value = "HEAD"),
+            cancellable = true)
     private void getRainStrengthHook(
             CallbackInfoReturnable<Float> callbackInfoReturnable)
     {
@@ -92,9 +83,9 @@ public abstract class MixinWorld implements IWorld
     }
 
     @Inject(
-        method = "spawnParticle(Lnet/minecraft/util/EnumParticleTypes;DDDDDD[I)V",
-        at = @At("HEAD"),
-        cancellable = true)
+            method = "spawnParticle(Lnet/minecraft/util/EnumParticleTypes;DDDDDD[I)V",
+            at = @At("HEAD"),
+            cancellable = true)
     private void spawnParticleHook(EnumParticleTypes particleType,
                                    double xCoord,
                                    double yCoord,
@@ -122,10 +113,10 @@ public abstract class MixinWorld implements IWorld
     }
 
     @Redirect(
-        method = "getEntityByID",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/util/IntHashMap;lookup(I)Ljava/lang/Object;"))
+            method = "getEntityByID",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/util/IntHashMap;lookup(I)Ljava/lang/Object;"))
     private Object getEntityByIDHook(IntHashMap<Entity> intHashMap, int id)
     {
         Entity entity = intHashMap.lookup(id);
@@ -177,10 +168,10 @@ public abstract class MixinWorld implements IWorld
     }
 
     @Redirect(
-        method = "mayPlace",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/world/World;checkNoEntityCollision(Lnet/minecraft/util/math/AxisAlignedBB;Lnet/minecraft/entity/Entity;)Z"))
+            method = "mayPlace",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/World;checkNoEntityCollision(Lnet/minecraft/util/math/AxisAlignedBB;Lnet/minecraft/entity/Entity;)Z"))
     private boolean checkNoEntityCollisionHook(World world,
                                                AxisAlignedBB bb,
                                                Entity entityIn)
@@ -192,10 +183,10 @@ public abstract class MixinWorld implements IWorld
                     : world.getEntitiesWithinAABBExcludingEntity(null, bb))
             {
                 if (!entity.isDead
-                    && !(entity instanceof EntityFallingBlock)
-                    && entity.preventEntitySpawning
-                    && entity != entityIn
-                    && (entityIn == null
+                        && !(entity instanceof EntityFallingBlock)
+                        && entity.preventEntitySpawning
+                        && entity != entityIn
+                        && (entityIn == null
                         || !entity.isRidingSameEntity(entityIn)))
                 {
                     return false;

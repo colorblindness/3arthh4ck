@@ -21,6 +21,7 @@ import me.earth.earthhack.impl.modules.client.management.Management;
 import me.earth.earthhack.impl.modules.client.media.Media;
 import me.earth.earthhack.impl.modules.client.notifications.Notifications;
 import me.earth.earthhack.impl.modules.client.pingbypass.PingBypass;
+import me.earth.earthhack.impl.modules.client.rotationbypass.Compatibility;
 import me.earth.earthhack.impl.modules.client.safety.Safety;
 import me.earth.earthhack.impl.modules.client.server.ServerModule;
 import me.earth.earthhack.impl.modules.client.tab.TabModule;
@@ -81,6 +82,7 @@ import me.earth.earthhack.impl.modules.misc.tooltips.ToolTips;
 import me.earth.earthhack.impl.modules.misc.tpssync.TpsSync;
 import me.earth.earthhack.impl.modules.misc.tracker.Tracker;
 import me.earth.earthhack.impl.modules.misc.truedurability.TrueDurability;
+import me.earth.earthhack.impl.modules.movement.anchor.Anchor;
 import me.earth.earthhack.impl.modules.movement.antimove.NoMove;
 import me.earth.earthhack.impl.modules.movement.autosprint.AutoSprint;
 import me.earth.earthhack.impl.modules.movement.blocklag.BlockLag;
@@ -91,7 +93,6 @@ import me.earth.earthhack.impl.modules.movement.entityspeed.EntitySpeed;
 import me.earth.earthhack.impl.modules.movement.fastswim.FastSwim;
 import me.earth.earthhack.impl.modules.movement.flight.Flight;
 import me.earth.earthhack.impl.modules.movement.highjump.HighJump;
-import me.earth.earthhack.impl.modules.movement.holetp.HoleTP;
 import me.earth.earthhack.impl.modules.movement.icespeed.IceSpeed;
 import me.earth.earthhack.impl.modules.movement.jesus.Jesus;
 import me.earth.earthhack.impl.modules.movement.longjump.LongJump;
@@ -103,6 +104,7 @@ import me.earth.earthhack.impl.modules.movement.reversestep.ReverseStep;
 import me.earth.earthhack.impl.modules.movement.safewalk.SafeWalk;
 import me.earth.earthhack.impl.modules.movement.speed.Speed;
 import me.earth.earthhack.impl.modules.movement.step.Step;
+import me.earth.earthhack.impl.modules.movement.tickshift.TickShift;
 import me.earth.earthhack.impl.modules.movement.velocity.Velocity;
 import me.earth.earthhack.impl.modules.player.arrows.Arrows;
 import me.earth.earthhack.impl.modules.player.automine.AutoMine;
@@ -121,6 +123,7 @@ import me.earth.earthhack.impl.modules.player.multitask.MultiTask;
 import me.earth.earthhack.impl.modules.player.ncptweaks.NCPTweaks;
 import me.earth.earthhack.impl.modules.player.noglitchblocks.NoGlitchBlocks;
 import me.earth.earthhack.impl.modules.player.nohunger.NoHunger;
+import me.earth.earthhack.impl.modules.player.noinventorydesync.InventorySync;
 import me.earth.earthhack.impl.modules.player.norotate.NoRotate;
 import me.earth.earthhack.impl.modules.player.raytrace.RayTrace;
 import me.earth.earthhack.impl.modules.player.reach.Reach;
@@ -146,7 +149,6 @@ import me.earth.earthhack.impl.modules.render.holeesp.HoleESP;
 import me.earth.earthhack.impl.modules.render.itemchams.ItemChams;
 import me.earth.earthhack.impl.modules.render.lagometer.LagOMeter;
 import me.earth.earthhack.impl.modules.render.logoutspots.LogoutSpots;
-import me.earth.earthhack.impl.modules.render.modeltotem.ModelTotem;
 import me.earth.earthhack.impl.modules.render.nametags.Nametags;
 import me.earth.earthhack.impl.modules.render.newchunks.NewChunks;
 import me.earth.earthhack.impl.modules.render.norender.NoRender;
@@ -182,6 +184,7 @@ public class ModuleManager extends IterationRegister<Module>
         this.forceRegister(new HUD());
         this.forceRegister(new Management());
         this.forceRegister(new Notifications());
+        this.forceRegister(new Compatibility());
         this.forceRegister(new Safety());
         this.forceRegister(new ServerModule());
         this.forceRegister(new TabModule());
@@ -200,8 +203,6 @@ public class ModuleManager extends IterationRegister<Module>
         this.forceRegister(new BowKiller());
         this.forceRegister(new Criticals());
         this.forceRegister(new CrystalBomber());
-        //this.forceRegister(new BowKiller());
-        //this.forceRegister(new HoleFiller());
         this.forceRegister(new HoleFiller());
         this.forceRegister(new KillAura());
         this.forceRegister(new LegSwitch());
@@ -249,6 +250,7 @@ public class ModuleManager extends IterationRegister<Module>
         this.forceRegister(new PacketDelay());
         this.forceRegister(new RPC());
 
+        this.forceRegister(new Anchor());
         this.forceRegister(new AutoSprint());
         this.forceRegister(new BlockLag());
         this.forceRegister(new BoatFly());
@@ -258,7 +260,6 @@ public class ModuleManager extends IterationRegister<Module>
         this.forceRegister(new FastSwim());
         this.forceRegister(new Flight());
         this.forceRegister(new HighJump());
-        this.forceRegister(new HoleTP());
         this.forceRegister(new ReverseStep());
         this.forceRegister(new IceSpeed());
         this.forceRegister(new Jesus());
@@ -271,6 +272,7 @@ public class ModuleManager extends IterationRegister<Module>
         this.forceRegister(new SafeWalk());
         this.forceRegister(new Speed());
         this.forceRegister(new Step());
+        this.forceRegister(new TickShift());
         this.forceRegister(new Velocity());
 
         this.forceRegister(new AutoMine());
@@ -289,6 +291,7 @@ public class ModuleManager extends IterationRegister<Module>
         this.forceRegister(new NCPTweaks());
         this.forceRegister(new NoGlitchBlocks());
         this.forceRegister(new NoHunger());
+        this.forceRegister(new InventorySync());
         this.forceRegister(new NoRotate());
         this.forceRegister(new Arrows());
         this.forceRegister(new RayTrace());
@@ -301,6 +304,7 @@ public class ModuleManager extends IterationRegister<Module>
         this.forceRegister(new Suicide());
         this.forceRegister(new Timer());
         this.forceRegister(new XCarry());
+
         this.forceRegister(new BlockHighlight());
         this.forceRegister(new BreadCrumbs());
         this.forceRegister(new Chams());
@@ -333,8 +337,6 @@ public class ModuleManager extends IterationRegister<Module>
         this.forceRegister(new PopChams());
         this.forceRegister(new ItemChams());
         this.forceRegister(new Ambience());
-        this.forceRegister(new me.earth.earthhack.impl.modules.render.rechams.Chams());
-        this.forceRegister(new ModelTotem());
 
         this.forceRegister(new PingBypass());
 

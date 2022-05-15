@@ -44,8 +44,8 @@ public class AutoCrystalData extends DefaultData<AutoCrystal>
             " of the normal PlaceDelay.");
         register(module.slowPlaceDelay,
             "Delay for placing less damaging Crystals.");
-        register(module.override, "Places crystals that damage you more " +
-            "than the MaxSelfPlace value, but only if they can kill an Enemy.");
+        register(module.override, "Places crystals that exceed " +
+            "the MaxSelfPlace value, but only if they can kill an Enemy.");
         register(module.newVer,
             "Takes 1.13+ Mechanics (1 high spaces into account).");
         register(module.newVerEntities, "This is actually not a 1.13+ " +
@@ -69,7 +69,7 @@ public class AutoCrystalData extends DefaultData<AutoCrystal>
             "Only Crystals within this range will be attacked.");
         register(module.breakDelay, "Delay between two attacks.");
         register(module.breakTrace, "Crystals will only be attacked through " +
-            "walls, if the lie within this range.");
+            "walls, if they lie within this range.");
         register(module.minBreakDamage,
             "Minimum Damage a crystal needs to deal in order to be broken.");
         register(module.maxSelfBreak,
@@ -263,7 +263,7 @@ public class AutoCrystalData extends DefaultData<AutoCrystal>
         register(module.obbyPreSelf, "Tries to make the calculation easier. " +
             "Good for high HelpingBlocks values.");
         register(module.fastObby, "Limits the Obsidian Calculation to only" +
-            " the blocks around the target. Useful when you PC" +
+            " the blocks around the target. Useful when your PC" +
             " can't deal with it.");
         register(module.maxDiff, "When evaluating the best Obsidian position" +
             " the difference of the amount of HelpingBlocks needed is taken" +
@@ -422,6 +422,9 @@ public class AutoCrystalData extends DefaultData<AutoCrystal>
         register(module.entityThread, "Starts a new Calculation in the moment" +
             " a player moves. That means we can attack him as soon as " +
             "possible after he leaves a hole.");
+        register(module.gameloop, "Attempts to start a thread every gameloop." +
+            " Not recommended when rotating. If this or MotionThread is off " +
+            "AutoCrystal might not place.");
         register(module.spawnThread, "Starts a Thread immediately after a " +
             "crystal spawned.");
         register(module.destroyThread, "Starts a Thread immediately after " +
@@ -437,13 +440,21 @@ public class AutoCrystalData extends DefaultData<AutoCrystal>
         register(module.lateBreakThread, "Breaks crystals late into a server tick " +
                 "when earlyFeetThread is enabled so that your CA is not outplaced.");
         register(module.motionThread, "Starts a Thread immediately after " +
-                "a MotionUpdateEvent.");
+                "a MotionUpdateEvent. If this or GameLoop is off AutoCrystal" +
+            " might not place.");
         register(module.blockChangeThread, "Starts a Thread immediately after" +
             " a block has changed close to an enemy player.");
 
         register(module.priority, "Allows you to set the RotationSpoof-" +
             "Priority. Should only be used if you understand how this " +
             "can affect the client.");
+
+        register(module.shield, "Only use this when you have low ping." +
+            " Places crystals which don't deal damage to you to shield" +
+            " you from enemies crystals.");
+        register(module.shieldCount, "MultiPlace for Shield.");
+        register(module.shieldMinDamage, "When to activate the shield.");
+        register(module.shieldSelfDamage, "Max damage to deal to yourself.");
     }
 
     @Override

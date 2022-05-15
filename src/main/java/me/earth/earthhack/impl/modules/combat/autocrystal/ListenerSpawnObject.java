@@ -66,7 +66,7 @@ final class ListenerSpawnObject extends
 
     private void onEvent(PacketEvent.Receive<SPacketSpawnObject> event)
     {
-        if (!module.spectator.getValue() && mc.player.isSpectator())
+        if (mc.player == null || mc.world == null || !module.spectator.getValue() && mc.player.isSpectator())
         {
             return;
         }
@@ -114,6 +114,7 @@ final class ListenerSpawnObject extends
             && stamp != null
             && stamp.isValid()
             && (stamp.getDamage() > module.slowBreakDamage.getValue()
+                || stamp.isShield()
                 || module.breakTimer.passed(module.slowBreakDelay.getValue())
                 || pos.down().equals(module.antiTotemHelper.getTargetPos())))
         {
@@ -144,6 +145,11 @@ final class ListenerSpawnObject extends
             }
 
             if (damage < 0.0f)
+            {
+                return;
+            }
+
+            if (damage > module.shieldSelfDamage.getValue() && stamp.isShield())
             {
                 return;
             }
@@ -212,7 +218,15 @@ final class ListenerSpawnObject extends
 
             if (attack)
             {
-                attack(packet, event, entity, slow);
+                attack(packet, event, entity,
+                       (stamp == null || !stamp.isShield()) && slow);
+            }
+            else if (stamp != null
+                && stamp.isShield()
+                && self >= 0.0f
+                && self <= module.shieldSelfDamage.getValue())
+            {
+                attack(packet, event, entity, false);
             }
         }
 

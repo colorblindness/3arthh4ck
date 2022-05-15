@@ -23,6 +23,7 @@ import me.earth.earthhack.impl.modules.render.norender.NoRender;
 import me.earth.earthhack.impl.modules.render.viewclip.CameraClip;
 import me.earth.earthhack.impl.modules.render.weather.Weather;
 import me.earth.earthhack.impl.util.math.MathUtil;
+import me.earth.earthhack.impl.util.math.Vector3f;
 import me.earth.earthhack.impl.util.math.raytrace.RayTracer;
 import me.earth.earthhack.impl.util.math.rotation.RotationUtil;
 import me.earth.earthhack.impl.util.minecraft.InventoryUtil;
@@ -47,7 +48,6 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
-import org.joml.Vector3f;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.glu.Project;
@@ -161,6 +161,7 @@ public abstract class MixinEntityRenderer implements IEntityRenderer {
         final AspectRatioEvent event = new AspectRatioEvent(mc.displayWidth / (float) mc.displayHeight);
         Bus.EVENT_BUS.post(event);
         Project.gluPerspective(fovy, event.getAspectRatio(), zNear, zFar);
+        /*Project.gluPerspective(fovy, event.getAspectRatio(), zNear, zFar);
         final GLUProjection projection = GLUProjection.getInstance();
         final IntBuffer viewPort = GLAllocation.createDirectIntBuffer(16);
         final FloatBuffer modelView = GLAllocation.createDirectFloatBuffer(16);
@@ -170,7 +171,7 @@ public abstract class MixinEntityRenderer implements IEntityRenderer {
         GL11.glGetInteger(GL11.GL_VIEWPORT, viewPort);
         final ScaledResolution scaledResolution = new ScaledResolution(Minecraft.getMinecraft());
         projection.updateMatrices(viewPort, modelView, projectionPort, scaledResolution.getScaledWidth() / (double) Minecraft.getMinecraft().displayWidth,
-                scaledResolution.getScaledHeight() / (double) Minecraft.getMinecraft().displayHeight);
+                scaledResolution.getScaledHeight() / (double) Minecraft.getMinecraft().displayHeight);*/
     }
 
     @Redirect(

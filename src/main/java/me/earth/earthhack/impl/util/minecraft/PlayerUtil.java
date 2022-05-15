@@ -23,7 +23,7 @@ import java.util.function.BiFunction;
 
 // TODO: THIS IS CHINESE
 public class PlayerUtil implements Globals {
-    private static final Map<Integer, EntityOtherPlayerMP> FAKE_PLAYERS =
+    public static final Map<Integer, EntityOtherPlayerMP> FAKE_PLAYERS =
             new HashMap<>();
 
     public static EntityOtherPlayerMP createFakePlayerAndAddToWorld(GameProfile profile) {
@@ -70,18 +70,13 @@ public class PlayerUtil implements Globals {
      * @param fakePlayer the fakeplayer to remove.
      */
     public static void removeFakePlayer(EntityOtherPlayerMP fakePlayer) {
-        if (fakePlayer != null
-                && FAKE_PLAYERS.containsKey(fakePlayer.getEntityId()))
-        {
+        mc.addScheduledTask(() -> {
             FAKE_PLAYERS.remove(fakePlayer.getEntityId());
-            mc.addScheduledTask(() ->
-            {
-                if (mc.world != null)
-                {
-                    mc.world.removeEntity(fakePlayer);
-                }
-            });
-        }
+            fakePlayer.isDead = true; // setDead might be overridden
+            if (mc.world != null) {
+                mc.world.removeEntity(fakePlayer);
+            }
+        });
     }
 
     public static boolean isFakePlayer(Entity entity) {

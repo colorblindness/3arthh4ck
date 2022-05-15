@@ -48,6 +48,8 @@ public class AutoMine extends BlockAddingModule implements IAutomine
         register(new BooleanSetting("ConstCheck", true));
     protected final Setting<Boolean> improve =
         register(new BooleanSetting("Improve", false));
+    protected final Setting<Boolean> improveInvalid =
+        register(new BooleanSetting("ImproveInvalid", false));
     protected final Setting<Integer> delay =
         register(new NumberSetting<>("Delay", 100, 0, 10000));
     protected final Setting<Boolean> newV =
@@ -72,6 +74,8 @@ public class AutoMine extends BlockAddingModule implements IAutomine
         register(new NumberSetting<>("PlaceTrace", 6.0f, 0.1f, 100.0f));
     protected final Setting<Float> breakTrace =
         register(new NumberSetting<>("BreakTrace", 3.5f, 0.1f, 100.0f));
+    protected final Setting<Boolean> crystal =
+        register(new BooleanSetting("Crystal", false));
     protected final Setting<Boolean> selfEchestMine =
         register(new BooleanSetting("Self-EchestBurrow-Mine", false));
     protected final Setting<Boolean> mineBurrow =
@@ -139,7 +143,7 @@ public class AutoMine extends BlockAddingModule implements IAutomine
         data.register(range, "Range in which blocks will be mined.");
         data.register(head, "Mines the Block above the Target.");
         data.register(rotate, "Rotates to mine the block.");
-        data.register(self, "Touches Blocks in the own Surround so they can" +
+        data.register(self, "Touches Blocks in your own Surround so it can" +
                             " be mined quickly if an enemy jumps in.");
         data.register(prioSelf, "Prioritizes untrapping yourself.");
         data.register(constellationCheck, "Dev Setting, should be on.");
@@ -147,7 +151,7 @@ public class AutoMine extends BlockAddingModule implements IAutomine
         data.register(newV, "Takes 1.13+ crystal mechanics into account.");
         data.register(checkCurrent, "Dev Setting, should be on.");
         data.register(improve, "Will actively search for a better position.");
-        data.register(mineL, "For Combat: Mines out L-Shape Holes");
+        data.register(mineL, "For Combat: Mines out L-Shaped Holes");
         data.register(offset, "Time to wait after a block has been destroyed.");
         data.register(shouldBlackList,
                 "Blacklists blocks that you reset by touching them again.");
@@ -337,6 +341,12 @@ public class AutoMine extends BlockAddingModule implements IAutomine
     public boolean canBigCalcsBeImproved()
     {
         return improveCalcs.getValue();
+    }
+
+    public boolean isValidCrystalPos(BlockPos pos)
+    {
+        return BlockUtil.canPlaceCrystal(pos, true, newV.getValue(), mc.world.loadedEntityList, newVEntities.getValue(), 0L)
+                && BlockUtil.isCrystalPosInRange(pos, placeRange.getValue(), placeTrace.getValue(), breakTrace.getValue());
     }
 
 }

@@ -1,0 +1,5 @@
+{
+  "name": "ViaVersionPlugin",
+  "mainClass": "me.earth.viaversionplugin.ViaVersionPlugin",
+  "mixinConfig": "mixins.viaforge.json"
+}

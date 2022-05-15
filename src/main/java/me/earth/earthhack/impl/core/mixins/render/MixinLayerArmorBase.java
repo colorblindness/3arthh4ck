@@ -34,27 +34,27 @@ public abstract class MixinLayerArmorBase {
     private static final ModuleCache<NoRender> NO_RENDER =
             Caches.getModule(NoRender.class);
 
-    @SuppressWarnings("UnresolvedMixinReference")
     @Redirect(method = "renderArmorLayer", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/model/ModelBase;render(Lnet/minecraft/entity/Entity;FFFFFF)V"))
     public void renderArmorHook(ModelBase modelBase, Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         RenderArmorEvent pre = new RenderArmorEvent.Pre(entityIn, modelBase, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
         Bus.EVENT_BUS.post(pre);
         if (!pre.isCancelled())
         {
-            Color color = CHAMS.get().getArmorVisibleColor(entityIn);
-                /*if (CHAMS.get().shouldArmorChams() && CHAMS.isEnabled()) {
-                    glPushMatrix();
-                    GL11.glEnable(GL11.GL_POLYGON_OFFSET_FILL);
-                    GL11.glPolygonOffset(1.0F, -2000000F);
-                    glColor4f(color.getRed() / 255.0f, color.getGreen() / 255.0f, color.getBlue() / 255.0f, color.getAlpha() / 255.0f);
-                }*/
+            if (CHAMS.get().shouldArmorChams() && CHAMS.isEnabled()) {
+                Color color = CHAMS.get().getArmorVisibleColor(entityIn);
+                glPushMatrix();
+                GL11.glEnable(GL11.GL_POLYGON_OFFSET_FILL);
+                GL11.glPolygonOffset(1.0F, -2000000F);
+                glColor4f(color.getRed() / 255.0f, color.getGreen() / 255.0f, color.getBlue() / 255.0f, color.getAlpha() / 255.0f);
+            }
             pre.getModel().render(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-                /*if (CHAMS.get().shouldArmorChams() && CHAMS.isEnabled()) {
-                    GL11.glPolygonOffset(1.0F, 2000000F);
-                    GL11.glDisable(GL11.GL_POLYGON_OFFSET_FILL);
-                    glPopMatrix();
-                }*/
+            if (CHAMS.get().shouldArmorChams() && CHAMS.isEnabled()) {
+                GL11.glPolygonOffset(1.0F, 2000000F);
+                GL11.glDisable(GL11.GL_POLYGON_OFFSET_FILL);
+                glPopMatrix();
+            }
         }
+
         RenderArmorEvent post = new RenderArmorEvent.Post(entityIn, modelBase, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
         Bus.EVENT_BUS.post(post);
     }
