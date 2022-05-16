@@ -8,4 +8,4 @@ https://www.youtube.com/watch?v=xUyx8BdJ6JE
 the gui isn't bound by default so bind it with +bind clickgui rshift (+ is the default command prefix)
 every client bouta get a recode
 
-1.6.2/3 archive and plugins source: https://github.com/3arthqu4ke/3arthh4ck, bye!
+1.6.2/3 archive and plugins source: https://github.com/3arthqu4ke/3arthh4ck
