@@ -9,3 +9,8 @@ the gui isn't bound by default so bind it with +bind clickgui rshift (+ is the d
 every client bouta get a recode
 
 1.6.2/3 archive and plugins source: https://github.com/3arthqu4ke/3arthh4ck
+
+1.6.3 dependency for plugins:
+```gradle
+group: 'com.github.3arthqu4ke', name: '3arthh4ck', version: '9e862dfb'
+```
